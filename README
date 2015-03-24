@@ -1,0 +1,31 @@
+
+compile AVR-code?
+
+
+commands:
+
+	avr-gcc -mmcu=atmega16 -O -g -Wcpp -o balls.o ballandbeam.c
+
+	avr-objcopy -Osrec -balls.o balls.sr
+
+	uisp -dprog=stk200 --erase --upload if=balls.sr
+
+
+
+För att testa på en dator kör:
+
+utan USB (datasladd inte ström):
+	simcom -38400 /dev/ttyS0
+
+med USB
+	simcom -38400 /dev/ttyUSB0
+
+
+avsluta med ctrl+c
+
+
+kör javakoden i SerialConnect.java med main i TestConnect.java
+
+
+
+
